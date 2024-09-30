@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: LinesDafualt
   m_EditorClassIdentifier: 
   _lines:
-  - corY: 0100000001000000010000000100000001000000
+  - corY: 01000000010000000100000001000000
