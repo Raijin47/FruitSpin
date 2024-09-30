@@ -46,6 +46,8 @@ public class SpinController : MonoBehaviour
 
     private int price;
 
+    public Sprite[,] SpritesEnd { get => _spritesEnd; set => _spritesEnd = value; }
+
     private void Start()
     {
         _betsId = 0;
@@ -177,8 +179,22 @@ public class SpinController : MonoBehaviour
                 OnChangeMoneyWin?.Invoke("");
                 StartCoroutine(StartSpinCoroutine());
                 OnStartSpin?.Invoke();
+
+                DebugLineWin();
             }
         }
+    }
+
+    private void DebugLineWin()
+    {
+        string debugLine = string.Empty;
+
+        for (int i = 0; i < SpritesEnd.GetLength(0); i++)
+        {
+            debugLine += SpritesEnd[i, 1].ToString();
+        }
+
+        print(debugLine);
     }
 
     private IEnumerator StartSpinCoroutine()
@@ -196,7 +212,7 @@ public class SpinController : MonoBehaviour
 
             for (int y = 0; y < _countRowElements; y++)
             {
-                rowSprite[y] = _spritesEnd[x, y];
+                rowSprite[y] = SpritesEnd[x, y];
             }
 
             _rows[x].Spin(_allSpritesData.sprites, rowSprite);
@@ -206,26 +222,26 @@ public class SpinController : MonoBehaviour
 
     private void CreateRandomSprites()
     {
-        _spritesEnd = new Sprite[_rows.Length, _countRowElements];
+        SpritesEnd = new Sprite[_rows.Length, _countRowElements];
 
-        for (int x = 0; x < _spritesEnd.GetLength(0); x++)
+        for (int x = 0; x < SpritesEnd.GetLength(0); x++)
         {
-            for (int y = 0; y < _spritesEnd.GetLength(1); y++)
+            for (int y = 0; y < SpritesEnd.GetLength(1); y++)
             {
                 Sprite randSprite = _allSpritesData.sprites[Random.Range(0, _allSpritesData.sprites.Length)];
-                _spritesEnd[x, y] = randSprite;
+                SpritesEnd[x, y] = randSprite;
             }
         }
 
         if (Random.Range(0, 1f) < chanseWin)
         {
             print(nameof(Win));
-            _checkSpin.SetWin(_spritesEnd, _allSpritesData.sprites, _countLine);
+            _checkSpin.SetWin(SpritesEnd, _allSpritesData.sprites, _countLine);
         }
         else
         {
             print(nameof(Lose));
-            _checkSpin.SetLose(_spritesEnd, _checkSpin.GetWinningLines(_spritesEnd, _countLine), _allSpritesData.sprites, _countLine);
+            _checkSpin.SetLose(SpritesEnd, _checkSpin.GetWinningLines(SpritesEnd, _countLine), _allSpritesData.sprites, _countLine);
         }
 
     }
@@ -245,9 +261,9 @@ public class SpinController : MonoBehaviour
     {
         if (IsStop())
         {
-            int[] lines = _checkSpin.GetWinningLines(_spritesEnd, _countLine);
+            int[] lines = _checkSpin.GetWinningLines(SpritesEnd, _countLine);
             int countWin = lines.Length;
-            float[] mult = _checkSpin.GetMultiplayers(_spritesEnd, _countLine);
+            float[] mult = _checkSpin.GetMultiplayers(SpritesEnd, _countLine);
 
             if (countWin > 0)
                 Win(lines, mult);
