@@ -133,7 +133,7 @@ namespace Neoxider
             {
                 foreach (var item in text)
                 {
-                    item.text = count.ToString();
+                    item.text = ConvertNumber.Convert(count);
                 }
             }
         }

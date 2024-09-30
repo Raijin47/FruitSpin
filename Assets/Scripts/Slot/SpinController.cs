@@ -232,8 +232,6 @@ public class SpinController : MonoBehaviour
 
     public bool IsStop()
     {
-        if (!TrailSystem.Instance.IsNotActiveLine()) return false;
-
         for (int i = 0; i < _rows.Length; i++)
         {
             if (_rows[i].is_spinning)
@@ -282,14 +280,14 @@ public class SpinController : MonoBehaviour
         {
             for (int i = 0; i < _rows.Length; i++)
             {
-                if (i > 0)
-                {
-                    Vector3 pos = _rows[i].transform.position;
-                    pos.x = _rows[i - 1].transform.position.x + _space.x;
-                    _rows[i].transform.position = pos;
-                }
+                //if (i > 0)
+                //{
+                //    Vector3 pos = _rows[i].transform.position;
+                //    pos.x = _rows[i - 1].transform.position.x + _space.x;
+                //    _rows[i].transform.position = pos;
+                //}
 
-                _rows[i].spaceY = _space.y;
+                //_rows[i].spaceY = _space.y;
 
                 if (_isSingleSpeed)
                     _rows[i].speedControll = _speedControll;

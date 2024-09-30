@@ -1,96 +1,91 @@
-using Neoxider.Bonus;
 using Neoxider.Shop;
 using System;
 using TMPro;
 using UnityEngine;
 
 [System.Serializable]
-public class SaveData
+public class Data
 {
     public int totalBet;
     public int totalWin;
     public int totalSpin;
-    public int[] animalClick = new int[48];
-    public bool daylyBonusTake = false;
+    public bool[] purchasedSkin = new bool[5];
+    public int currentEquipSkin;
+
+    public Data()
+    {
+        purchasedSkin[0] = true;
+    }
 }
 
 public class Stats : MonoBehaviour
 {
+    public static event Action OnSavesLoaded;
     public static Stats Instance;
-    public SetText textTotalBet;
-    public SetText textTotalWin;
+    public TMP_Text textTotalBet;
+    public TMP_Text textTotalWin;
     public TMP_Text textTotalSpin;
-    public TimeReward TimeReward;
 
-    public SaveData data;
+    public Data savesData;
 
     public void SetStats(int bet, int win, int spin)
     {
-        data.totalBet = bet;
-        data.totalWin = win;
-        data.totalSpin = spin;
+        savesData.totalBet = bet;
+        savesData.totalWin = win;
+        savesData.totalSpin = spin;
+    }
+
+    private void Awake()
+    {
+        Instance = this;
     }
 
     private void Start()
     {
-        data.animalClick = new int[48];
-
         Load();
         UpdateText();
-        Instance = this;
-        TimeReward.OnRewardAvailable.AddListener(GetReward);
         Application.targetFrameRate = 60;
-    }
-
-    private void GetReward()
-    {
-        Debug.Log("GetReward");
-        for (int i = 0; i < data.animalClick.Length; i++)
-            data.animalClick[i] = 5;
-
-        Money.Instance.Add(50);
-        Save();
-
-        TimeReward.TakeReward();
     }
 
     private void Load()
     {
-        string jsonData = PlayerPrefs.GetString(nameof(SaveData), String.Empty);
+        string jsonData = PlayerPrefs.GetString(nameof(Data), String.Empty);
 
         if (!String.IsNullOrEmpty(jsonData))
         {
-            data = JsonUtility.FromJson<SaveData>(jsonData);
+            savesData = JsonUtility.FromJson<Data>(jsonData);
         }
+
+        OnSavesLoaded?.Invoke();
     }
 
     private void OnApplicationQuit() => Save();
     
 
-    private void Save()
+    public void Save()
     {
-        string jsonData = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(nameof(SaveData), jsonData);
+        string jsonData = JsonUtility.ToJson(savesData);
+        PlayerPrefs.SetString(nameof(Data), jsonData);
     }
 
     private void UpdateText()
     {
-        textTotalBet.text = data.totalBet.ToString();
-        textTotalWin.text = data.totalWin.ToString();
-        textTotalSpin.text = data.totalSpin.ToString();
+        textTotalBet.text = ConvertNumber.Convert(savesData.totalBet, end: "\nTotal bet");
+        textTotalWin.text = ConvertNumber.Convert(savesData.totalWin, "Profit: ");
+        textTotalSpin.text = ConvertNumber.Convert(savesData.totalSpin, "Total spin: ");
     }
 
     public void AddTotalBet(int count)
     {
-        data.totalBet += count;
-        data.totalSpin += 1;
+        savesData.totalBet += count;
+        savesData.totalSpin += 1;
         UpdateText();
         Save();
     }
 
     public void AddTotalWin(int count)
     {
-        data.totalWin += count;
+        savesData.totalWin += count;
         UpdateText();
         Save();
     }

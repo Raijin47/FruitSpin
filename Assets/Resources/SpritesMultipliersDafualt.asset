@@ -14,94 +14,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spritesMultiplier:
     spriteMults:
-    - sprite: {fileID: -308287763, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 0.5
-      - count: 4
-        mult: 1
-      - count: 5
-        mult: 2
-    - sprite: {fileID: 1454889966, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 0.2
-      - count: 4
-        mult: 0.5
-      - count: 5
-        mult: 1
-    - sprite: {fileID: 1535262896, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 0.5
-      - count: 4
-        mult: 1
-      - count: 5
-        mult: 2
-    - sprite: {fileID: 58651989, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 0.5
-      - count: 4
-        mult: 1
-      - count: 5
-        mult: 2
-    - sprite: {fileID: 1270346717, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 0.5
-      - count: 4
-        mult: 1
-      - count: 5
-        mult: 2
-    - sprite: {fileID: 2080165653, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 2
-      - count: 4
-        mult: 3
-      - count: 5
-        mult: 4
-    - sprite: {fileID: -1330702604, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
+    - sprite: {fileID: 1481528484, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
       countMult:
       - count: 3
         mult: 1
       - count: 4
-        mult: 1.5
+        mult: 1
       - count: 5
-        mult: 2.5
-    - sprite: {fileID: 591006000, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 2
-      - count: 4
-        mult: 4
-      - count: 5
-        mult: 8
-    - sprite: {fileID: -2077417012, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
-      countMult:
-      - count: 3
-        mult: 2
-      - count: 4
-        mult: 2.5
-      - count: 5
-        mult: 4
-    - sprite: {fileID: -639337961, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
+        mult: 1
+    - sprite: {fileID: -1374231112, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
       countMult:
       - count: 3
         mult: 1
       - count: 4
-        mult: 2
+        mult: 1
       - count: 5
-        mult: 3
-    - sprite: {fileID: 872106591, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
+        mult: 1
+    - sprite: {fileID: 1607932402, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
       countMult:
       - count: 3
-        mult: 2
+        mult: 1
       - count: 4
-        mult: 5
+        mult: 1
       - count: 5
-        mult: 10
+        mult: 1
+    - sprite: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: 822858009, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: -302656787, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: -390902027, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: 736228980, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: 1272756607, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
+    - sprite: {fileID: 2079213411, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
+      countMult:
+      - count: 3
+        mult: 1
+      - count: 4
+        mult: 1
+      - count: 5
+        mult: 1
   _generate: 0
   _minCount: 3
   _maxCount: 5
