@@ -8304,7 +8304,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _resetPosition
-      value: -8.47
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _sprites.Array.size
@@ -8332,39 +8332,39 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 9.8
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
-      value: -5.9700003
+      value: -0.86999995
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[1]
-      value: -3.4700003
+      value: 1.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[2]
-      value: -0.97000027
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[3]
-      value: 1.5299997
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[4]
-      value: 4.0299997
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[5]
-      value: 6.5299997
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 2840144492531762044, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_Name
@@ -8806,7 +8806,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006247981}
+      objectReference: {fileID: 0}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -9089,7 +9089,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006247981}
+      objectReference: {fileID: 0}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -9178,7 +9178,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1006247979}
   - component: {fileID: 1006247980}
-  - component: {fileID: 1006247981}
   - component: {fileID: 1006247984}
   - component: {fileID: 1006247983}
   - component: {fileID: 1006247982}
@@ -9229,49 +9228,6 @@ MonoBehaviour:
   _failClip: {fileID: 8300000, guid: 6b30cf7f84118374ea3bc4bc6b20d83f, type: 3}
   _smallWinClip: {fileID: 8300000, guid: f8ad8dc08e841f541aa4e3284fa6fa88, type: 3}
   _bulkClip: {fileID: 8300000, guid: 73518465fc251204ca872a820fffd2d1, type: 3}
---- !u!114 &1006247981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1006247978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a810e75fa079afa46a0289a330ca9172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shopElement:
-  - Sprite: {fileID: 21300000, guid: c4762982f043d9a42a78feda299061d6, type: 3}
-    _buttonText: {fileID: 459610665}
-    Name: Simple Blender
-    PriceObject: {fileID: 147196237}
-    Price: 100000
-  - Sprite: {fileID: 21300000, guid: 14abc5b7039b00441992eb1644e19668, type: 3}
-    _buttonText: {fileID: 80752897}
-    Name: Better Blender
-    PriceObject: {fileID: 970648377}
-    Price: 400
-  - Sprite: {fileID: 21300000, guid: 7699f8f28cb7e754ea80ccd32e72be20, type: 3}
-    _buttonText: {fileID: 702412635}
-    Name: Mega Blender
-    PriceObject: {fileID: 1792363039}
-    Price: 800
-  - Sprite: {fileID: 21300000, guid: d4859ea324eaaf947be3fdc6889b0337, type: 3}
-    _buttonText: {fileID: 1387299276}
-    Name: Ultra Blender
-    PriceObject: {fileID: 36293590}
-    Price: 1200
-  - Sprite: {fileID: 21300000, guid: 1c14df963028bb14d984b8d9c084d319, type: 3}
-    _buttonText: {fileID: 1430079336}
-    Name: Unreal Blender
-    PriceObject: {fileID: 1013949598}
-    Price: 1800
-  _spriteSkin: {fileID: 45135986}
-  _panel: {fileID: 66769357}
-  _image: {fileID: 156053231}
-  _priceText: {fileID: 1587856224}
-  _nameText: {fileID: 385215548}
 --- !u!114 &1006247982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9663,7 +9619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _resetPosition
-      value: -8.47
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _sprites.Array.size
@@ -9691,39 +9647,39 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 9.6
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
-      value: -5.9700003
+      value: -0.86999995
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[1]
-      value: -3.4700003
+      value: 1.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[2]
-      value: -0.97000027
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[3]
-      value: 1.5299997
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[4]
-      value: 4.0299997
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[5]
-      value: 6.5299997
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 2840144492531762044, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_Name
@@ -10081,6 +10037,7 @@ GameObject:
   - component: {fileID: 1151044553}
   - component: {fileID: 1151044555}
   - component: {fileID: 1151044554}
+  - component: {fileID: 1151044556}
   m_Layer: 5
   m_Name: Page Shop
   m_TagString: Untagged
@@ -10147,6 +10104,49 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151044552}
   m_CullTransparentMesh: 1
+--- !u!114 &1151044556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151044552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a810e75fa079afa46a0289a330ca9172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shopElement:
+  - Sprite: {fileID: 21300000, guid: c4762982f043d9a42a78feda299061d6, type: 3}
+    _buttonText: {fileID: 459610665}
+    Name: Simple Blender
+    PriceObject: {fileID: 147196237}
+    Price: 100000
+  - Sprite: {fileID: 21300000, guid: 14abc5b7039b00441992eb1644e19668, type: 3}
+    _buttonText: {fileID: 80752897}
+    Name: Better Blender
+    PriceObject: {fileID: 970648377}
+    Price: 400
+  - Sprite: {fileID: 21300000, guid: 7699f8f28cb7e754ea80ccd32e72be20, type: 3}
+    _buttonText: {fileID: 702412635}
+    Name: Mega Blender
+    PriceObject: {fileID: 1792363039}
+    Price: 800
+  - Sprite: {fileID: 21300000, guid: d4859ea324eaaf947be3fdc6889b0337, type: 3}
+    _buttonText: {fileID: 1387299276}
+    Name: Ultra Blender
+    PriceObject: {fileID: 36293590}
+    Price: 1200
+  - Sprite: {fileID: 21300000, guid: 1c14df963028bb14d984b8d9c084d319, type: 3}
+    _buttonText: {fileID: 1430079336}
+    Name: Unreal Blender
+    PriceObject: {fileID: 1013949598}
+    Price: 1800
+  _spriteSkin: {fileID: 45135986}
+  _panel: {fileID: 66769357}
+  _image: {fileID: 156053231}
+  _priceText: {fileID: 1587856224}
+  _nameText: {fileID: 385215548}
 --- !u!1 &1153420571
 GameObject:
   m_ObjectHideFlags: 0
@@ -15906,7 +15906,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006247981}
+      objectReference: {fileID: 0}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -21576,7 +21576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _resetPosition
-      value: -8.47
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _sprites.Array.size
@@ -21604,39 +21604,39 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 9.4
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
-      value: -5.9700003
+      value: -0.86999995
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[1]
-      value: -3.4700003
+      value: 1.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[2]
-      value: -0.97000027
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[3]
-      value: 1.5299997
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[4]
-      value: 4.0299997
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[5]
-      value: 6.5299997
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 2840144492531762044, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_Name
@@ -22505,7 +22505,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006247981}
+      objectReference: {fileID: 0}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -32599,7 +32599,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1006247981}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -44822,7 +44822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _resetPosition
-      value: -8.47
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: _sprites.Array.size
@@ -44850,39 +44850,39 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
-      value: -5.9700003
+      value: -0.86999995
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[1]
-      value: -3.4700003
+      value: 1.6300001
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[2]
-      value: -0.97000027
+      value: 4.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[3]
-      value: 1.5299997
+      value: 6.63
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[4]
-      value: 4.0299997
+      value: 9.13
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[5]
-      value: 6.5299997
+      value: 11.63
       objectReference: {fileID: 0}
     - target: {fileID: 2840144492531762044, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_Name
@@ -45457,9 +45457,9 @@ MonoBehaviour:
   - {fileID: 856552938}
   - {fileID: 1112415171}
   - {fileID: 1421217491}
-  _isSingleSpeed: 0
   chanseWin: 1
   _delaySpinRoll: 0.2
+  _isSingleSpeed: 0
   _speedControll:
     speed: 45
     timeSpin: 2
@@ -45733,7 +45733,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1006247981}
+      objectReference: {fileID: 0}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

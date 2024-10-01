@@ -18,11 +18,11 @@ public class SpinController : MonoBehaviour
     [SerializeField] private int _countRowElements = 3;
     [SerializeField] private Row[] _rows;
     [SerializeField] private Sprite[,] _spritesEnd;
-    [SerializeField] private bool _isSingleSpeed = true;
     [Range(0f, 1f)] public float chanseWin = 0.5f;
 
     [Space, Header("Visual")]
     [SerializeField] private float _delaySpinRoll = 0.2f;
+    [SerializeField] private bool _isSingleSpeed = true;
     [SerializeField] private SpeedControll _speedControll = new();
     [SerializeField] private Vector2 _space = Vector2.one;
     [SerializeField] private VisualSlotLines _lineSlot = new();
