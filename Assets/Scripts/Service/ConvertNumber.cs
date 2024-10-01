@@ -7,7 +7,7 @@ public static class ConvertNumber
         string[] typeValue = new[] { "", "k", "m", "b", "t" };
 
         int indexer = 0;
-        while (indexer + 1 < typeValue.Length && digit >= 1000d)
+        while (indexer + 1 < typeValue.Length && digit >= 1000f)
         {
             digit /= 1000f;
             indexer++;

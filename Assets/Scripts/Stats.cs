@@ -1,92 +1,184 @@
 using Neoxider.Shop;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
-[System.Serializable]
-public class Data
+[Serializable]
+public class Stats
 {
-    public int totalBet;
-    public int totalWin;
-    public int totalSpin;
-    public bool[] purchasedSkin = new bool[5];
-    public int currentEquipSkin;
+    [SerializeField] private GameObject _blockingObject;
+    [SerializeField] private GameObject _panelGameOver, _panelWin;
 
-    public Data()
-    {
-        purchasedSkin[0] = true;
-    }
-}
 
-public class Stats : MonoBehaviour
-{
-    public static event Action OnSavesLoaded;
-    public static Stats Instance;
-    public TMP_Text textTotalBet;
-    public TMP_Text textTotalWin;
-    public TMP_Text textTotalSpin;
+    [SerializeField] private Image _animationImage;
+    [SerializeField] private TMP_Text _textBalance;
+    [SerializeField] private TMP_Text _textProfit;
+    [SerializeField] private TMP_Text _textTotalSpin;
+    [SerializeField] private Image[] _images;
+    [SerializeField] private TMP_Text[] _textTask;
+    
+    private readonly int[] _countTask = new int[4];
 
-    public Data savesData;
 
-    public void SetStats(int bet, int win, int spin)
-    {
-        savesData.totalBet = bet;
-        savesData.totalWin = win;
-        savesData.totalSpin = spin;
-    }
+    [SerializeField] private Sprite[] _sprites;
 
-    private void Awake()
-    {
-        Instance = this;
-    }
 
-    private void Start()
-    {
-        Load();
-        UpdateText();
-        Application.targetFrameRate = 60;
-    }
+    private int _balance;
+    private int _profit;
+    private int _totalSpin;
 
-    private void Load()
-    {
-        string jsonData = PlayerPrefs.GetString(nameof(Data), String.Empty);
-
-        if (!String.IsNullOrEmpty(jsonData))
+    public int Balance 
+    { 
+        get => _balance;
+        set 
         {
-            savesData = JsonUtility.FromJson<Data>(jsonData);
+            _balance = value;
+            _textBalance.text = $"{_balance}$";
+        } 
+    }
+    public int Profit
+    {
+        get => _profit;
+        set
+        {
+            _profit = value;
+            _textProfit.text = $"Profit: {_profit}$";
+        }
+    }
+    public int TotalSpin 
+    {
+        get => _totalSpin;
+        set 
+        {
+            _totalSpin = value;
+            _textTotalSpin.text = $"Total spin: {_totalSpin}";
+        } 
+    }
+
+    public void Init()
+    {
+        Game.Instance.onStartGame += StartGame;
+        SpinController.Instance.OnStartSpin.AddListener(() => { TotalSpin++; _blockingObject.SetActive(true); });
+        SpinController.Instance.OnWin.AddListener(Check);
+    }
+
+    private void StartGame()
+    {
+        Balance = 20;
+        Profit = 0;
+        TotalSpin = 0;
+
+        GetTask();
+    }
+
+    private void GetTask()
+    {
+        List<int> RandomNum = new();
+
+        for (int r = 0; r < _images.Length; r++)
+        {
+            int num = Random.Range(0, _sprites.Length);
+
+            while (RandomNum.Contains(num))
+            {
+                num = Random.Range(0, _sprites.Length);
+            }
+
+            RandomNum.Add(num);
         }
 
-        OnSavesLoaded?.Invoke();
+        for (int i = 0; i < _images.Length; i++)
+        {
+            _images[i].sprite = _sprites[RandomNum[i]];
+            _images[i].SetNativeSize();
+            _countTask[i] = 4;
+            _textTask[i].text = $"x{_countTask[i]}";
+        }
     }
 
-    private void OnApplicationQuit() => Save();
-    
-
-    public void Save()
+    public bool Spend()
     {
-        string jsonData = JsonUtility.ToJson(savesData);
-        PlayerPrefs.SetString(nameof(Data), jsonData);
+        if (Balance > 0)
+        {
+            Balance--;
+            return true;
+        }
+        else return false;
     }
 
-    private void UpdateText()
+    private int _count;
+
+    private void Check(Sprite sprite, int count)
     {
-        textTotalBet.text = ConvertNumber.Convert(savesData.totalBet, end: "\nTotal bet");
-        textTotalWin.text = ConvertNumber.Convert(savesData.totalWin, "Profit: ");
-        textTotalSpin.text = ConvertNumber.Convert(savesData.totalSpin, "Total spin: ");
+        if (IsFoundFruit(sprite, count))
+        {
+            _animationImage.sprite = sprite;
+            _animationImage.SetNativeSize();
+            AnimationBlender.Instance.StartAnim();
+            AudioController.Instance.SmallWin();
+        }
+        else 
+        {
+            if (Balance == 0) 
+            {
+                _panelGameOver.SetActive(true);
+                AudioController.Instance.GameOver();
+            }
+            else AudioController.Instance.Fail();
+
+            _blockingObject.SetActive(false);
+        } 
     }
 
-    public void AddTotalBet(int count)
+    private bool IsFoundFruit(Sprite sprite, int count)
     {
-        savesData.totalBet += count;
-        savesData.totalSpin += 1;
-        UpdateText();
-        Save();
+        for (int i = 0; i < _images.Length; i++)
+        {
+            if (sprite == _images[i].sprite && _countTask[i] != 0)
+            {
+                _count = _countTask[i] == 1 ? 1 : count;
+                _countTask[i] -= count;
+                if (_countTask[i] <= 0) _countTask[i] = 0;
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    public void AddTotalWin(int count)
+    public void CheckComplated()
     {
-        savesData.totalWin += count;
-        UpdateText();
-        Save();
+        for(int i = 0; i < _images.Length; i++)
+        {
+            _textTask[i].text = $"x{_countTask[i]}";
+        }
+
+        Balance += _count * 2;
+        Profit += _count * 2;
+
+        _blockingObject.SetActive(false);
+
+        if(IsComplated())
+        {
+            _panelWin.SetActive(true);
+            AudioController.Instance.Win();
+            Balance += 20;
+            Profit += 100;
+            Money.Instance.Add(Profit);
+            GetTask();
+        }
+    }
+
+    private bool IsComplated()
+    {
+        for(int i = 0; i < _images.Length; i++)      
+            if (_countTask[i] != 0)
+                return false;
+        
+        return true;
     }
 }

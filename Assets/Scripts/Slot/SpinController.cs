@@ -7,6 +7,8 @@ using UnityEngine.Events;
 
 public class SpinController : MonoBehaviour
 {
+    public static SpinController Instance;
+
     [SerializeField] private CheckSpin _checkSpin = new();
     [SerializeField] private BetsData _betsData;
     [SerializeField] private SpritesData _allSpritesData;
@@ -32,7 +34,7 @@ public class SpinController : MonoBehaviour
     public UnityEvent OnStartSpin;
 
     [Space]
-    public UnityEvent<int> OnWin;
+    public UnityEvent<Sprite, int> OnWin;
     public static System.Action<int[]> OnWinLines;
     public UnityEvent OnLose;
 
@@ -47,6 +49,11 @@ public class SpinController : MonoBehaviour
     private int price;
 
     public Sprite[,] SpritesEnd { get => _spritesEnd; set => _spritesEnd = value; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -151,6 +158,13 @@ public class SpinController : MonoBehaviour
         _lineSlot.LineActiv(lines);
         float moneyWin = 0;
 
+        int count = 0;
+
+        for (int i = 0; i < SpritesEnd.GetLength(0); i++)
+        {
+            if (SpritesEnd[i, 1] == SpritesEnd[1, 1]) count++;
+        }
+
         for (int i = 0; i < mult.Length; i++)
         {
             moneyWin += mult[i] * _betsData.bets[_betsId];
@@ -158,9 +172,9 @@ public class SpinController : MonoBehaviour
 
         OnChangeMoneyWin?.Invoke(((int)moneyWin).ToString());
 
-        OnWin?.Invoke((int)moneyWin);
+        OnWin?.Invoke(SpritesEnd[1,1], count);
         OnWinLines?.Invoke(lines);
-        Money.Instance.Add((int)moneyWin);
+        //Money.Instance.Add((int)moneyWin);
     }
 
     private void Lose()
@@ -174,13 +188,11 @@ public class SpinController : MonoBehaviour
     {
         if (IsStop())
         {
-            if (Money.Instance.Spend(price))
+            if (Game.Stats.Spend())
             {
                 OnChangeMoneyWin?.Invoke("");
                 StartCoroutine(StartSpinCoroutine());
                 OnStartSpin?.Invoke();
-
-                DebugLineWin();
             }
         }
     }

@@ -18,7 +18,7 @@ namespace Neoxider
             [SerializeField] private int _money;
             [SerializeField] private int _levelMoney;
 
-            [SerializeField] private string _moneySave = "Money";
+            private const string _moneySave = "Money";
 
             [Space, Header("Text")]
             [SerializeField] private TMP_Text[] t_money;
@@ -133,7 +133,7 @@ namespace Neoxider
             {
                 foreach (var item in text)
                 {
-                    item.text = ConvertNumber.Convert(count);
+                    item.text = $"{count}$";
                 }
             }
         }

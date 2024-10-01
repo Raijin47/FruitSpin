@@ -9,7 +9,6 @@ public class Shop : MonoBehaviour
     [SerializeField] private ShopElement[] _shopElement;
     [SerializeField] private Image _spriteSkin;
 
-
     [SerializeField] private GameObject _panel;
     [SerializeField] private Image _image;
     [SerializeField] private TMP_Text _priceText;
@@ -23,16 +22,16 @@ public class Shop : MonoBehaviour
     private int _current;
 
 
-    private void Start() => Stats.OnSavesLoaded += GetData;
+    private void OnEnable() => SaveData.Instance.OnSavesLoaded += GetData;
 
     private void GetData()
     {
-        Equip = Stats.Instance.savesData.currentEquipSkin;
+        Equip = SaveData.Instance.savesData.currentEquipSkin;
 
         for (int i = 0; i < _shopElement.Length; i++)
         {
-            _shopElement[i].PriceObject.SetActive(!Stats.Instance.savesData.purchasedSkin[i]);
-            _shopElement[i].text = Stats.Instance.savesData.purchasedSkin[i] ? (_equip == i ? TextEquiped : TextEquip) : TextBuy;
+            _shopElement[i].PriceObject.SetActive(!SaveData.Instance.savesData.purchasedSkin[i]);
+            _shopElement[i].text = SaveData.Instance.savesData.purchasedSkin[i] ? (_equip == i ? TextEquiped : TextEquip) : TextBuy;
         }
     }
 
@@ -40,7 +39,7 @@ public class Shop : MonoBehaviour
     {
         if (_equip == id) return;
 
-        if (Stats.Instance.savesData.purchasedSkin[id])
+        if (SaveData.Instance.savesData.purchasedSkin[id])
         {
             _shopElement[_equip].text = TextEquip;
             _shopElement[id].text = TextEquiped;
@@ -53,7 +52,7 @@ public class Shop : MonoBehaviour
             _panel.SetActive(true);
             _image.sprite = _shopElement[id].Sprite;
             _image.SetNativeSize();
-            _priceText.text = ConvertNumber.Convert(_shopElement[id].Price);
+            _priceText.text = $"{_shopElement[id].Price}$";
             _nameText.text = _shopElement[id].Name;
         }            
     }
@@ -65,8 +64,8 @@ public class Shop : MonoBehaviour
             _panel.SetActive(false);
             _shopElement[_current].text = TextEquip;
             _shopElement[_current].PriceObject.SetActive(false);
-            Stats.Instance.savesData.purchasedSkin[_current] = true;
-            Stats.Instance.Save();
+            SaveData.Instance.savesData.purchasedSkin[_current] = true;
+            SaveData.Instance.Save();
         }
     }
 
@@ -78,8 +77,8 @@ public class Shop : MonoBehaviour
             _spriteSkin.sprite = _shopElement[_equip].Sprite;
             _spriteSkin.SetNativeSize();
 
-            Stats.Instance.savesData.currentEquipSkin = _equip;
-            Stats.Instance.Save();
+            SaveData.Instance.savesData.currentEquipSkin = _equip;
+            SaveData.Instance.Save();
         }
     }
 }
