@@ -6,6 +6,7 @@ using System;
 
 public class Shop : MonoBehaviour
 {
+    [SerializeField] private SaveData _data;
     [SerializeField] private ShopElement[] _shopElement;
     [SerializeField] private Image _spriteSkin;
 
@@ -21,8 +22,14 @@ public class Shop : MonoBehaviour
     private int _equip;
     private int _current;
 
-
-    private void OnEnable() => SaveData.Instance.OnSavesLoaded += GetData;
+    private void Awake()
+    {
+        _data.OnSavesLoaded += GetData;
+    }
+    private void OnEnable() 
+    {
+        _data.OnSavesLoaded += GetData;
+    } 
 
     private void GetData()
     {

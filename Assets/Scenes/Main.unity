@@ -8806,7 +8806,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006247985}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -9089,7 +9089,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006247985}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -9181,6 +9181,7 @@ GameObject:
   - component: {fileID: 1006247984}
   - component: {fileID: 1006247983}
   - component: {fileID: 1006247982}
+  - component: {fileID: 1006247985}
   m_Layer: 0
   m_Name: --GameManager--
   m_TagString: Untagged
@@ -9313,6 +9314,50 @@ MonoBehaviour:
   savesData:
     purchasedSkin: 0100000000
     currentEquipSkin: 0
+--- !u!114 &1006247985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006247978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a810e75fa079afa46a0289a330ca9172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data: {fileID: 1006247984}
+  _shopElement:
+  - Sprite: {fileID: 21300000, guid: c4762982f043d9a42a78feda299061d6, type: 3}
+    _buttonText: {fileID: 459610665}
+    Name: Simple Blender
+    PriceObject: {fileID: 147196237}
+    Price: 100000
+  - Sprite: {fileID: 21300000, guid: 14abc5b7039b00441992eb1644e19668, type: 3}
+    _buttonText: {fileID: 80752897}
+    Name: Better Blender
+    PriceObject: {fileID: 970648377}
+    Price: 400
+  - Sprite: {fileID: 21300000, guid: 7699f8f28cb7e754ea80ccd32e72be20, type: 3}
+    _buttonText: {fileID: 702412635}
+    Name: Mega Blender
+    PriceObject: {fileID: 1792363039}
+    Price: 800
+  - Sprite: {fileID: 21300000, guid: d4859ea324eaaf947be3fdc6889b0337, type: 3}
+    _buttonText: {fileID: 1387299276}
+    Name: Ultra Blender
+    PriceObject: {fileID: 36293590}
+    Price: 1200
+  - Sprite: {fileID: 21300000, guid: 1c14df963028bb14d984b8d9c084d319, type: 3}
+    _buttonText: {fileID: 1430079336}
+    Name: Unreal Blender
+    PriceObject: {fileID: 1013949598}
+    Price: 1800
+  _spriteSkin: {fileID: 45135986}
+  _panel: {fileID: 66769357}
+  _image: {fileID: 156053231}
+  _priceText: {fileID: 1587856224}
+  _nameText: {fileID: 385215548}
 --- !u!1 &1013949598 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7979465501057643173, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
@@ -10037,7 +10082,6 @@ GameObject:
   - component: {fileID: 1151044553}
   - component: {fileID: 1151044555}
   - component: {fileID: 1151044554}
-  - component: {fileID: 1151044556}
   m_Layer: 5
   m_Name: Page Shop
   m_TagString: Untagged
@@ -10104,49 +10148,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1151044552}
   m_CullTransparentMesh: 1
---- !u!114 &1151044556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1151044552}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a810e75fa079afa46a0289a330ca9172, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shopElement:
-  - Sprite: {fileID: 21300000, guid: c4762982f043d9a42a78feda299061d6, type: 3}
-    _buttonText: {fileID: 459610665}
-    Name: Simple Blender
-    PriceObject: {fileID: 147196237}
-    Price: 100000
-  - Sprite: {fileID: 21300000, guid: 14abc5b7039b00441992eb1644e19668, type: 3}
-    _buttonText: {fileID: 80752897}
-    Name: Better Blender
-    PriceObject: {fileID: 970648377}
-    Price: 400
-  - Sprite: {fileID: 21300000, guid: 7699f8f28cb7e754ea80ccd32e72be20, type: 3}
-    _buttonText: {fileID: 702412635}
-    Name: Mega Blender
-    PriceObject: {fileID: 1792363039}
-    Price: 800
-  - Sprite: {fileID: 21300000, guid: d4859ea324eaaf947be3fdc6889b0337, type: 3}
-    _buttonText: {fileID: 1387299276}
-    Name: Ultra Blender
-    PriceObject: {fileID: 36293590}
-    Price: 1200
-  - Sprite: {fileID: 21300000, guid: 1c14df963028bb14d984b8d9c084d319, type: 3}
-    _buttonText: {fileID: 1430079336}
-    Name: Unreal Blender
-    PriceObject: {fileID: 1013949598}
-    Price: 1800
-  _spriteSkin: {fileID: 45135986}
-  _panel: {fileID: 66769357}
-  _image: {fileID: 156053231}
-  _priceText: {fileID: 1587856224}
-  _nameText: {fileID: 385215548}
 --- !u!1 &1153420571
 GameObject:
   m_ObjectHideFlags: 0
@@ -15906,7 +15907,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006247985}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -22505,7 +22506,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006247985}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -32599,7 +32600,7 @@ MonoBehaviour:
   OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1006247985}
         m_TargetAssemblyTypeName: Shop, Assembly-CSharp
         m_MethodName: Buy
         m_Mode: 1
@@ -45733,7 +45734,7 @@ PrefabInstance:
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1006247985}
     - target: {fileID: 2398316411000505589, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
