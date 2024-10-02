@@ -34,7 +34,7 @@ public class SpinControll : MonoBehaviour
     public UnityEvent OnStartSpin;
 
     [Space]
-    public UnityEvent<Sprite, int> OnWin;
+    public UnityEvent<Sprite[]> OnWin;
     public static System.Action<int[]> OnWinLines;
     public UnityEvent OnLose;
 
@@ -88,12 +88,7 @@ public class SpinControll : MonoBehaviour
         if (IsStop())
         {
             _countLine++;
-
-            if (_countLine > _lineSlot.lines.Length)
-            {
-                _countLine = 1;
-            }
-
+            if (_countLine > _lineSlot.lines.Length) _countLine = 1;
             SetPrice();
         }
     }
@@ -103,12 +98,7 @@ public class SpinControll : MonoBehaviour
         if (IsStop())
         {
             _countLine--;
-
-            if (_countLine < 1)
-            {
-                _countLine = _lineSlot.lines.Length;
-            }
-
+            if (_countLine < 1) _countLine = _lineSlot.lines.Length;
             SetPrice();
         }
     }
@@ -118,7 +108,6 @@ public class SpinControll : MonoBehaviour
         if (IsStop())
         {
             _betsId = _betsData.bets.Length - 1;
-
             SetPrice();
         }
     }
@@ -128,12 +117,7 @@ public class SpinControll : MonoBehaviour
         if (IsStop())
         {
             _betsId++;
-
-            if (_betsId >= _betsData.bets.Length)
-            {
-                _betsId = 0;
-            }
-
+            if (_betsId >= _betsData.bets.Length) _betsId = 0;
             SetPrice();
         }
     }
@@ -143,12 +127,7 @@ public class SpinControll : MonoBehaviour
         if (IsStop())
         {
             _betsId--;
-
-            if (_betsId < 0)
-            {
-                _betsId = _betsData.bets.Length - 1;
-            }
-
+            if (_betsId < 0) _betsId = _betsData.bets.Length - 1;
             SetPrice();
         }
     }
@@ -156,31 +135,22 @@ public class SpinControll : MonoBehaviour
     private void Win(int[] lines, float[] mult)
     {
         _lineSlot.LineActiv(lines);
-        float moneyWin = 0;
 
-        int count = 0;
+        Sprite[] sprites = new Sprite[4];
 
-        for (int i = 0; i < SpritesEnd.GetLength(0); i++)
+        for(int i = 0; i < sprites.Length; i++)
         {
-            if (SpritesEnd[i, 1] == SpritesEnd[1, 1]) count++;
+            sprites[i] = SpritesEnd[i, 1];
         }
 
-        for (int i = 0; i < mult.Length; i++)
-        {
-            moneyWin += mult[i] * _betsData.bets[_betsId];
-        }
-
-        OnChangeMoneyWin?.Invoke(((int)moneyWin).ToString());
-
-        OnWin?.Invoke(SpritesEnd[1,1], count);
+        OnWin?.Invoke(sprites);
         OnWinLines?.Invoke(lines);
-        //Money.Instance.Add((int)moneyWin);
     }
 
     private void Lose()
     {
         OnChangeMoneyWin?.Invoke(0.ToString());
-
+        Gagame.Stats.CheckBalance();
         OnLose?.Invoke();
     }
 
@@ -197,18 +167,6 @@ public class SpinControll : MonoBehaviour
         }
     }
 
-    private void DebugLineWin()
-    {
-        string debugLine = string.Empty;
-
-        for (int i = 0; i < SpritesEnd.GetLength(0); i++)
-        {
-            debugLine += SpritesEnd[i, 1].ToString();
-        }
-
-        print(debugLine);
-    }
-
     private IEnumerator StartSpinCoroutine()
     {
         var delay = new WaitForSeconds(_delaySpinRoll);
@@ -216,7 +174,6 @@ public class SpinControll : MonoBehaviour
         _lineSlot.LineActiv(false);
 
         CreateRandomSprites();
-        print(nameof(StartSpin));
 
         for (int x = 0; x < _rows.Length; x++)
         {
@@ -277,10 +234,12 @@ public class SpinControll : MonoBehaviour
             int countWin = lines.Length;
             float[] mult = _checkSpin.GetMultiplayers(SpritesEnd, _countLine);
 
-            if (countWin > 0)
-                Win(lines, mult);
-            else if (countWin == 0)
-                Lose();
+            Win(lines, mult);
+
+            //if (countWin > 0)
+            //    Win(lines, mult);
+            //else if (countWin == 0)
+            //    Lose();
         }
     }
 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationBlender : MonoBehaviour
@@ -20,7 +18,6 @@ public class AnimationBlender : MonoBehaviour
     }
     public void EndAnim()
     {
-
         _animator.Play("Empty");
         Gagame.Stats.CheckComplated();
     }

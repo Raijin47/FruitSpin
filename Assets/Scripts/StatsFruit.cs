@@ -13,8 +13,6 @@ public class StatsFruit
     [SerializeField] private GameObject _blockingObject;
     [SerializeField] private GameObject _panelGameOver, _panelWin;
 
-
-    [SerializeField] private Image _animationImage;
     [SerializeField] private TMP_Text _textBalance;
     [SerializeField] private TMP_Text _textProfit;
     [SerializeField] private TMP_Text _textTotalSpin;
@@ -23,6 +21,8 @@ public class StatsFruit
     
     private readonly int[] _countTask = new int[4];
 
+    public Image[] Img => _images;
+    public int[] Task => _countTask;
 
     [SerializeField] private Sprite[] _sprites;
 
@@ -68,7 +68,7 @@ public class StatsFruit
 
     private void StartGame()
     {
-        Balance = 20;
+        Balance = 50;
         Profit = 0;
         TotalSpin = 0;
 
@@ -95,7 +95,7 @@ public class StatsFruit
         {
             _images[i].sprite = _sprites[RandomNum[i]];
             _images[i].SetNativeSize();
-            _countTask[i] = 4;
+            _countTask[i] = Random.Range(1, 5);
             _textTask[i].text = $"x{_countTask[i]}";
         }
     }
@@ -110,41 +110,64 @@ public class StatsFruit
         else return false;
     }
 
-    private int _count;
-
-    private void Check(Sprite sprite, int count)
+    public void CheckBalance()
     {
-        if (IsFoundFruit(sprite, count))
+        if (Balance == 0)
         {
-            _animationImage.sprite = sprite;
-            _animationImage.SetNativeSize();
-            AnimationFruitBlender.Instance.StartAnim();
-            AudioControllerBlendera.Instance.SmallWin();
+            _panelGameOver.SetActive(true);
+            AudioControllerBlendera.Instance.GameOver();
         }
-        else 
-        {
-            if (Balance == 0) 
-            {
-                _panelGameOver.SetActive(true);
-                AudioControllerBlendera.Instance.GameOver();
-            }
-            else AudioControllerBlendera.Instance.Fail();
+        else AudioControllerBlendera.Instance.Fail();
 
-            _blockingObject.SetActive(false);
-        } 
+        _blockingObject.SetActive(false);
     }
 
-    private bool IsFoundFruit(Sprite sprite, int count)
+    private void Check(Sprite[] sprites)
     {
-        for (int i = 0; i < _images.Length; i++)
+        int[] buffer = new int[4];
+
+        //for(int i = 0; i < _images.Length; i++)
+        //{
+        //    for (int a = 0; a < sprites.Length; a++)
+        //    {
+        //        if (sprites[a] == _images[i].sprite && _countTask[i] != 0)
+        //        {
+        //            buffer[i]++;
+        //        }
+        //    }
+        //}
+
+        for(int i = 0; i < _images.Length; i++)       
+            for(int a = 0; a < sprites.Length; a++)           
+                if (sprites[a] == _images[i].sprite && _countTask[i] != 0)                
+                    buffer[i]++;
+
+        if (IsFoundFruit(buffer))
         {
-            if (sprite == _images[i].sprite && _countTask[i] != 0)
+            List<Sprite> sprite = new();
+            for (int i = 0; i < buffer.Length; i++)
             {
-                _count = _countTask[i] == 1 ? 1 : count;
-                _countTask[i] -= count;
-                if (_countTask[i] <= 0) _countTask[i] = 0;
-                return true;
+                if (buffer[i] >= 2)
+                {
+                    sprite.Add(_images[i].sprite);
+                    int count = buffer[i] == 2 ? 1 : 2;
+                    _countTask[i] -= count;
+                    if (_countTask[i] < 0) _countTask[i] = 0;
+                }
             }
+
+            AnimationFruitBlender.Instance.StartAnim(sprite);
+            AudioControllerBlendera.Instance.SmallWin();
+        }
+        else CheckBalance();
+    }
+
+    private bool IsFoundFruit(int[] task)
+    {
+        for(int i = 0; i < task.Length; i++)
+        {
+            if (task[i] >= 2 && _countTask[i] != 0)
+                return true;
         }
 
         return false;
@@ -157,18 +180,17 @@ public class StatsFruit
             _textTask[i].text = $"x{_countTask[i]}";
         }
 
-        Balance += _count * 2;
-        Profit += _count * 2;
-
         _blockingObject.SetActive(false);
 
         if(IsComplated())
         {
             _panelWin.SetActive(true);
             AudioControllerBlendera.Instance.Win();
-            Balance += 20;
-            Profit += 100;
-            Diamonds.Instance.Add(Profit);
+
+            Diamonds.Instance.Add(Balance);
+            Profit += Balance;
+            Balance = 50;
+
             GetTask();
         }
     }

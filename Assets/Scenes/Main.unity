@@ -310,7 +310,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1955336931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6980,6 +6980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db839e3eea2e414b8ca8f056a66dcaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _image: {fileID: 1334205513}
   _animator: {fileID: 604371859}
 --- !u!95 &604371859
 Animator:
@@ -8891,10 +8892,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Mega Blender
       objectReference: {fileID: 0}
-    - target: {fileID: 4602236739875277970, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
-      propertyPath: m_text
-      value: 800$
-      objectReference: {fileID: 0}
     - target: {fileID: 6342647974521846209, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 173
@@ -9174,10 +9171,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Ultra Blender
       objectReference: {fileID: 0}
-    - target: {fileID: 4602236739875277970, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
-      propertyPath: m_text
-      value: 1200$
-      objectReference: {fileID: 0}
     - target: {fileID: 6342647974521846209, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_SizeDelta.x
       value: 166
@@ -9282,7 +9275,6 @@ MonoBehaviour:
     _blockingObject: {fileID: 1233112858}
     _panelGameOver: {fileID: 1229461684}
     _panelWin: {fileID: 1808126532}
-    _animationImage: {fileID: 1334205513}
     _textBalance: {fileID: 1812258913}
     _textProfit: {fileID: 1775569228}
     _textTotalSpin: {fileID: 1246079962}
@@ -9369,27 +9361,27 @@ MonoBehaviour:
     _buttonText: {fileID: 459610665}
     Name: Simple Blender
     PriceObject: {fileID: 147196237}
-    Price: 100000
+    Price: 100
   - Sprite: {fileID: 21300000, guid: 14abc5b7039b00441992eb1644e19668, type: 3}
     _buttonText: {fileID: 80752897}
     Name: Better Blender
     PriceObject: {fileID: 970648377}
-    Price: 400
+    Price: 100
   - Sprite: {fileID: 21300000, guid: 7699f8f28cb7e754ea80ccd32e72be20, type: 3}
     _buttonText: {fileID: 702412635}
     Name: Mega Blender
     PriceObject: {fileID: 1792363039}
-    Price: 800
+    Price: 100
   - Sprite: {fileID: 21300000, guid: d4859ea324eaaf947be3fdc6889b0337, type: 3}
     _buttonText: {fileID: 1387299276}
     Name: Ultra Blender
     PriceObject: {fileID: 36293590}
-    Price: 1200
+    Price: 100
   - Sprite: {fileID: 21300000, guid: 1c14df963028bb14d984b8d9c084d319, type: 3}
     _buttonText: {fileID: 1430079336}
     Name: Unreal Blender
     PriceObject: {fileID: 1013949598}
-    Price: 1800
+    Price: 100
   _spriteSkin: {fileID: 45135986}
   _panel: {fileID: 66769357}
   _image: {fileID: 156053231}
@@ -10271,6 +10263,7 @@ GameObject:
   - component: {fileID: 1229461685}
   - component: {fileID: 1229461687}
   - component: {fileID: 1229461686}
+  - component: {fileID: 1229461688}
   m_Layer: 5
   m_Name: Panel GameOver
   m_TagString: Untagged
@@ -10336,6 +10329,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229461684}
   m_CullTransparentMesh: 1
+--- !u!114 &1229461688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229461684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c878f62639dc90a45a877e524cbff8b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _images:
+  - {fileID: 976179939}
+  - {fileID: 697167409}
+  - {fileID: 851309211}
+  - {fileID: 1920323651}
+  _texts:
+  - {fileID: 1734041003}
+  - {fileID: 1973866244}
+  - {fileID: 757888651}
+  - {fileID: 1856319293}
 --- !u!1 &1233112858
 GameObject:
   m_ObjectHideFlags: 0
@@ -15920,7 +15935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4602236739875277970, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_text
-      value: 1800$
+      value: 100$
       objectReference: {fileID: 0}
     - target: {fileID: 4602236739875277970, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_fontSizeBase
@@ -22512,10 +22527,6 @@ PrefabInstance:
     - target: {fileID: 4240227886704595161, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -238.84726
-      objectReference: {fileID: 0}
-    - target: {fileID: 4602236739875277970, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
-      propertyPath: m_text
-      value: 400$
       objectReference: {fileID: 0}
     - target: {fileID: 6342647974521846209, guid: 796f18be59ef28b488e1436b735e41b3, type: 3}
       propertyPath: m_SizeDelta.x
@@ -45419,7 +45430,7 @@ MonoBehaviour:
   - {fileID: 856552938}
   - {fileID: 1112415171}
   - {fileID: 1421217491}
-  chanseWin: 1
+  chanseWin: 0.7
   _delaySpinRoll: 0.2
   _isSingleSpeed: 0
   _speedControll:

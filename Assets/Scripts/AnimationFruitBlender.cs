@@ -1,8 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationFruitBlender : MonoBehaviour
 {
+    public Image _image;
     public static AnimationFruitBlender Instance;
+
+    private readonly List<Sprite> Sprites = new();
 
     private void Awake()
     {
@@ -11,15 +16,31 @@ public class AnimationFruitBlender : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    public void StartAnim() 
+    public void StartAnim(List<Sprite> Sprite) 
     {
-        _animator.Play("Anim");
+        Sprites.AddRange(Sprite);
 
+        Play();
     }
+
+    public void Play()
+    {
+        _image.sprite = Sprites[0];
+        _image.SetNativeSize();
+        Sprites.RemoveAt(0);
+        _animator.Play("New State");
+    }
+
     public void EndAnim() 
     {
         AudioControllerBlendera.Instance.Bulk();
-        _animator.Play("Empty");
-        AnimationBlender.Instance.StartAnim();
+
+
+        if (Sprites.Count == 0)
+        {
+            _animator.Play("Empty");
+            AnimationBlender.Instance.StartAnim();
+        }
+        else Play();
     } 
 }

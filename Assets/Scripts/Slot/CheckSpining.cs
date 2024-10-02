@@ -99,7 +99,6 @@ public class CheckSpining
 
         int countWin = Random.Range(3, 4 + 1);
         int randStart = Random.Range(0, spritesEnd.GetLength(0) + 1 - countWin);
-        Debug.Log("start line: " + randStart);
         Sprite sprite = GetRandomSprite(allSprites);
 
         for (int x = randStart; x < randStart + 3; x++)
