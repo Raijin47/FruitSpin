@@ -94,8 +94,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 7387459734279827519}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6f3f7a8ae2919a41ab7d0bfe988fbb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 27510cfa2ad984549b16b8aa22b4c3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 1163229400196617482}
-  _sprite: {fileID: 838451329, guid: adf38adbe0c554c428b962c17a4bc91c, type: 3}
+  _sprite: {fileID: 0}

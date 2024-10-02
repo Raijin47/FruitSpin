@@ -66,7 +66,7 @@ public class Shop : MonoBehaviour
 
     public void Buy()
     {
-        if (Money.Instance.Spend(_shopElement[_current].Price))
+        if (Diamonds.Instance.Spend(_shopElement[_current].Price))
         {
             _panel.SetActive(false);
             _shopElement[_current].text = TextEquip;

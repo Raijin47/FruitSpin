@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ButtonStart : MonoBehaviour
 {
-    [SerializeField] private SpinController _spinController;
+    [SerializeField] private SpinControll _spinController;
 
     private void OnMouseDown()
     {

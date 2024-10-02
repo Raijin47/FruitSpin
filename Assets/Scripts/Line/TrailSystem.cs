@@ -23,7 +23,7 @@ public class TrailSystem : MonoBehaviour
 
     private void Start()
     {
-        SpinController.OnWinLines += Activate;
+        SpinControll.OnWinLines += Activate;
         OnReturnLine += Release;
     }
 

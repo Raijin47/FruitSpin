@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationBlender : MonoBehaviour
@@ -11,15 +13,15 @@ public class AnimationBlender : MonoBehaviour
 
     [SerializeField] private Animator _animator;
 
-    public void StartAnim() 
+    public void StartAnim()
     {
-        _animator.Play("Anim");
-
+        _animator.Play("Play");
+        AudioControllerBlendera.Instance.Blender();
     }
-    public void EndAnim() 
+    public void EndAnim()
     {
-        AudioController.Instance.Bulk();
+
         _animator.Play("Empty");
-        Game.Stats.CheckComplated();
-    } 
+        Gagame.Stats.CheckComplated();
+    }
 }

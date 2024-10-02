@@ -291,6 +291,8 @@ GameObject:
   - component: {fileID: 45135985}
   - component: {fileID: 45135987}
   - component: {fileID: 45135986}
+  - component: {fileID: 45135989}
+  - component: {fileID: 45135988}
   m_Layer: 5
   m_Name: Image Blender
   m_TagString: Untagged
@@ -355,6 +357,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 45135984}
   m_CullTransparentMesh: 1
+--- !u!114 &45135988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45135984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9e2b36f8683fb74c8eebffaacfbf157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 45135989}
+--- !u!95 &45135989
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 45135984}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66c25e45807eecc40918b73503375287, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &66769357
 GameObject:
   m_ObjectHideFlags: 0
@@ -6906,7 +6942,7 @@ GameObject:
   - component: {fileID: 604371859}
   - component: {fileID: 604371858}
   m_Layer: 5
-  m_Name: Fruit
+  m_Name: Animation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7022,7 +7058,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 636968762}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -7218,7 +7254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 684479142}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -7719,7 +7755,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 737767022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -8288,7 +8324,7 @@ PrefabInstance:
       objectReference: {fileID: 1481528484, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2000751185560724111, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: spaceY
@@ -8649,7 +8685,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 936984857}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -9218,7 +9254,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1006247978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f321d957af144714491de51ad0ec2271, type: 3}
+  m_Script: {fileID: 11500000, guid: dfaf2c8a803ce3247b3851d6a34da548, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1500418085}
@@ -9229,6 +9265,7 @@ MonoBehaviour:
   _failClip: {fileID: 8300000, guid: 6b30cf7f84118374ea3bc4bc6b20d83f, type: 3}
   _smallWinClip: {fileID: 8300000, guid: f8ad8dc08e841f541aa4e3284fa6fa88, type: 3}
   _bulkClip: {fileID: 8300000, guid: 73518465fc251204ca872a820fffd2d1, type: 3}
+  _blenderClip: {fileID: 8300000, guid: a990be326a3ecce42915c904e32e9b50, type: 3}
 --- !u!114 &1006247982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9282,7 +9319,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f99f727912f57644be1cf15ba31cd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _money: 0
+  _money: 50
   _levelMoney: 0
   t_money:
   - {fileID: 831534196}
@@ -9524,7 +9561,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1079255947}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -9648,7 +9685,7 @@ PrefabInstance:
       objectReference: {fileID: 1481528484, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2000751185560724111, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: spaceY
@@ -15581,81 +15618,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1273570623}
   m_CullTransparentMesh: 1
---- !u!1 &1274806560
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1274806561}
-  - component: {fileID: 1274806563}
-  - component: {fileID: 1274806562}
-  m_Layer: 5
-  m_Name: Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1274806561
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274806560}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1808126533}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1274806562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274806560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 0
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1274806563
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274806560}
-  m_CullTransparentMesh: 1
 --- !u!1 &1283156812
 GameObject:
   m_ObjectHideFlags: 0
@@ -16496,7 +16458,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353254208}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -16507,7 +16469,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2111715988}
-        m_TargetAssemblyTypeName: SpinController, Assembly-CSharp
+        m_TargetAssemblyTypeName: SpinControll, Assembly-CSharp
         m_MethodName: StartSpin
         m_Mode: 1
         m_Arguments:
@@ -21561,7 +21523,7 @@ PrefabInstance:
       objectReference: {fileID: 1481528484, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2000751185560724111, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: spaceY
@@ -32590,7 +32552,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1595410430}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -43836,7 +43798,6 @@ RectTransform:
   - {fileID: 1656875793}
   - {fileID: 1914968545}
   - {fileID: 1351661483}
-  - {fileID: 1274806561}
   m_Father: {fileID: 1481488311}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -44807,7 +44768,7 @@ PrefabInstance:
       objectReference: {fileID: 1481528484, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2000751185560724111, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 2.5000002
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: spaceY
@@ -45002,7 +44963,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2034019840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac384ecf1cc8cc24fad6991c0506e354, type: 3}
+  m_Script: {fileID: 11500000, guid: 00c390820473d0c43bd692238c8b6213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _interactable: 1
@@ -45443,7 +45404,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2111715986}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f42eafd1d288a7b48bfe36c6146b0932, type: 3}
+  m_Script: {fileID: 11500000, guid: 788b4b11c88253f49b86ba70c3846959, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _checkSpin:

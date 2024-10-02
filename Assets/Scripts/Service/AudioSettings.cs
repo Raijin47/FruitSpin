@@ -7,7 +7,7 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] private AudioMixerGroup _mixer;
     [SerializeField] private Image _sfxImage, _musicImage;
     [SerializeField] private Sprite _sfxOn, _sfxOff, _musicOn, _musicOff;
-    [SerializeField] private ButtonBase _sfxButton, _musicButton;
+    [SerializeField] private ButtonSlovoBase _sfxButton, _musicButton;
 
     private const float On = 0;
     private const float Off = -80;
