@@ -8332,15 +8332,15 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 19
+      value: 21.5
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
@@ -9692,15 +9692,15 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 18
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
@@ -21605,15 +21605,15 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 17
+      value: 20.5
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
@@ -44851,15 +44851,15 @@ PrefabInstance:
       objectReference: {fileID: 1960912420, guid: cb6635a7c27ae4347b1c3dc1352fd520, type: 3}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.endSpeed
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.minSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: speedControll.timeSpin
-      value: 0.25
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2545829864448599073, guid: 2549fbe6b19681a4387fd5788b7dd61b, type: 3}
       propertyPath: yPositions.Array.data[0]
