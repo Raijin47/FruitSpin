@@ -8,7 +8,7 @@ public class SliceElement : MonoBehaviour
     [SerializeField] private SliceFruit _fruit;
 
     public bool HasReady { private set; get; }
-    private readonly bool[] _isReady = new bool[7];
+    private readonly bool[] _isReady = new bool[4];
 
     public void OnClear()
     {
@@ -43,12 +43,12 @@ public class SliceElement : MonoBehaviour
             }
         }
 
-        return id >= 6;
+        return id >= _isReady.Length-1;
     }
 
     public void ResetSlice()
     {
-        for(int i = 0; i < 6; i++)       
+        for(int i = 0; i < _isReady.Length; i++)       
             _isReady[i] = false;       
     }
 }
