@@ -15,6 +15,7 @@ public class AudioControllerBlendera : MonoBehaviour
     [SerializeField] private AudioClip _smallWinClip;
     [SerializeField] private AudioClip _bulkClip;
     [SerializeField] private AudioClip _blenderClip;
+    [SerializeField] private AudioClip _sliceClip;
 
     private void Start()
     {
@@ -60,5 +61,10 @@ public class AudioControllerBlendera : MonoBehaviour
     public void Blender()
     {
         Instance._audioSource.PlayOneShot(Instance._blenderClip);
+    }
+
+    public void Slice()
+    {
+        Instance._audioSource.PlayOneShot(Instance._sliceClip);
     }
 }

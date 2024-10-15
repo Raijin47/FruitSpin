@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class WinPanel : MonoBehaviour
 {
+    [SerializeField] private GameObject _order;
     [SerializeField] private float _lifeTime;
     [SerializeField] private Image _image;
     [SerializeField] private Sprite[] _sprites;
@@ -39,6 +40,7 @@ public class WinPanel : MonoBehaviour
             _currentTime -= Time.deltaTime;
             yield return null;
         }
+        _order.SetActive(true);
         gameObject.SetActive(false);
     }
 }

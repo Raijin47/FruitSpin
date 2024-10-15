@@ -10,6 +10,12 @@ using Random = UnityEngine.Random;
 [Serializable]
 public class StatsFruit
 {
+    [SerializeField] private Image[] _imageOrder;
+    [SerializeField] private TMP_Text[] _textOrder;
+    [SerializeField] private TMP_Text _profitOrder;
+    [SerializeField] private TMP_Text _totalOrder;
+
+    [Space(10)]
     [SerializeField] private GameObject _blockingObject;
     [SerializeField] private GameObject _panelGameOver, _panelWin;
 
@@ -47,6 +53,7 @@ public class StatsFruit
         {
             _profit = value;
             _textProfit.text = $"Profit: {_profit}$";
+            _profitOrder.text = _textProfit.text;
         }
     }
     public int TotalSpin 
@@ -56,6 +63,7 @@ public class StatsFruit
         {
             _totalSpin = value;
             _textTotalSpin.text = $"Total spin: {_totalSpin}";
+            _totalOrder.text = _textTotalSpin.text;
         } 
     }
 
@@ -97,6 +105,10 @@ public class StatsFruit
             _images[i].SetNativeSize();
             _countTask[i] = Random.Range(1, 5);
             _textTask[i].text = $"x{_countTask[i]}";
+
+            _imageOrder[i].sprite = _sprites[RandomNum[i]];
+            _imageOrder[i].SetNativeSize();
+            _textOrder[i].text = $"x{_countTask[i]}";
         }
     }
 
@@ -156,11 +168,15 @@ public class StatsFruit
                 }
             }
 
-            AnimationFruitBlender.Instance.StartAnim(sprite);
+            _slicePanel.SetActive(true);
+            _sliceFruit.AddSprite(sprite);
+            //AnimationFruitBlender.Instance.StartAnim(sprite);
             AudioControllerBlendera.Instance.SmallWin();
         }
         else CheckBalance();
     }
+    [SerializeField] private GameObject _slicePanel;
+    [SerializeField] private SliceFruit _sliceFruit;
 
     private bool IsFoundFruit(int[] task)
     {
