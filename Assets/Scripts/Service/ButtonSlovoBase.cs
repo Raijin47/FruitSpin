@@ -18,20 +18,30 @@ public class ButtonSlovoBase : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public UnityEvent OnClick;
     public bool Interactable
-    { 
-        get => _interactable; 
+    {
+        get => _interactable;
         set
         {
             _interactable = value;
-            _targetGraphic.sprite = value ? _enableSprite : _disableSprite;
-        } 
+            if (_targetGraphic != null)
+                _targetGraphic.sprite = value ? _enableSprite : _disableSprite;
+            else
+            {
+                if (canvasGroup == null)
+                    canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+                canvasGroup.alpha = value ? 1 : 0.6f;
+            }    
+
+        }
     }
 
     private RectTransform _rectTransform;
     private readonly Vector2 PressedSize = new(0.9f, 0.9f);
     private const float ResizeDuration = 0.2f;
     private Vector2 _currentSize;
-    private Coroutine _resizeCoroutine; 
+    private Coroutine _resizeCoroutine;
+    private CanvasGroup canvasGroup;
 
     private void Awake()
     {

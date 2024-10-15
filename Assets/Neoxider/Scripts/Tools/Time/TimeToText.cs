@@ -28,7 +28,7 @@ namespace Neoxider
         public string separator = ":";
         public TMP_Text text;
 
-        public void Set(float time = 0)
+        public void SetText(float time = 0)
         {
             text.text = startAddText + FormatTime(time, timeFormat, separator) + endAddText;
         }
