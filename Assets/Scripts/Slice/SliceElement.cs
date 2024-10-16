@@ -8,10 +8,15 @@ public class SliceElement : MonoBehaviour
     [SerializeField] private SliceFruit _fruit;
 
     public bool HasReady { private set; get; }
-    private readonly bool[] _isReady = new bool[4];
+    private readonly bool[] _isReady = new bool[3];
+    private CanvasGroup canvasGroup;
 
     public void OnClear()
     {
+        if(canvasGroup == null)
+            canvasGroup = gameObject.AddComponent<CanvasGroup>();
+
+        canvasGroup.blocksRaycasts = true;
         HasReady = false;
         _sliceImage.sprite = _off;
         ResetSlice();
@@ -21,6 +26,7 @@ public class SliceElement : MonoBehaviour
     {
         if(IsReady(id) && !HasReady)
         {
+            canvasGroup.blocksRaycasts = false;
             _sliceImage.sprite = _on;
             HasReady = true;
             _fruit.Check();
