@@ -31,6 +31,7 @@ public class FruitMoover : MonoBehaviour
             if (transform.position == targetPosition)
             {
                 isMoving = false;
+                AnimationBlender.Instance.StartAnim();
             }
         }
     }

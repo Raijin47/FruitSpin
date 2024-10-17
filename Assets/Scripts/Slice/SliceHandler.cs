@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,31 +20,16 @@ public class SliceHandler : MonoBehaviour
         {
             mainCamera = Camera.main;
         }
-
-        if (rectangleImage == null)
-        {
-            Debug.LogWarning("Rectangle Image is not assigned!");
-        }
-
-
     }
 
-    //private void Awake()
-    //{
-    //    isActive = false;
-    //    slider.value = slider.minValue;
-    //}
 
     private void Update()
     {
-        if (!IsActive())
-        {
-            return;
-        }
+        if (!IsActive()) return;
+
 
         HandleInput();
         CheckIntersection();
-        DrawDebugLine();
     }
 
     public void Activate()
@@ -61,6 +44,9 @@ public class SliceHandler : MonoBehaviour
         isActive = false;
         slider.value = slider.minValue;
         finger.SetActive(false);
+
+        isTouching = false;
+        isIntersecting = false;
     }
 
     public bool IsActive()
@@ -93,31 +79,8 @@ public class SliceHandler : MonoBehaviour
             corners[i] = RectTransformUtility.WorldToScreenPoint(mainCamera, corners[i]);
         }
 
-        //return LineIntersectsLine(lineStart, lineEnd, corners[0], corners[1]) ||
-        //       LineIntersectsLine(lineStart, lineEnd, corners[1], corners[2]) ||
-        //       LineIntersectsLine(lineStart, lineEnd, corners[2], corners[3]) ||
-        //       LineIntersectsLine(lineStart, lineEnd, corners[3], corners[0]) ||
-        //       IsPointInsideRect(lineStart, corners) || IsPointInsideRect(lineEnd, corners);
-
-        // Хак, считаем только пересечение двух крайних линий прамоугольника
         return LineIntersectsLine(lineStart, lineEnd, corners[0], corners[1])
             && LineIntersectsLine(lineStart, lineEnd, corners[2], corners[3]);
-    }
-
-    private bool IsPointInsideRect(Vector2 point, Vector3[] rectCorners)
-    {
-        int intersectCount = 0;
-        for (int i = 0; i < 4; i++)
-        {
-            Vector2 corner1 = rectCorners[i];
-            Vector2 corner2 = rectCorners[(i + 1) % 4];
-            if (((corner1.y <= point.y && point.y < corner2.y) || (corner2.y <= point.y && point.y < corner1.y)) &&
-                (point.x < (corner2.x - corner1.x) * (point.y - corner1.y) / (corner2.y - corner1.y) + corner1.x))
-            {
-                intersectCount++;
-            }
-        }
-        return (intersectCount % 2) == 1;
     }
 
     private bool LineIntersectsLine(Vector3 line1Start, Vector3 line1End, Vector3 line2Start, Vector3 line2End)
@@ -165,28 +128,5 @@ public class SliceHandler : MonoBehaviour
             return Input.GetTouch(0).position;
         else
             return Input.mousePosition;
-    }
-
-    // Дальше код для рисования дебажной информации
-    private void DrawDebugLine()
-    {
-        if (Application.isEditor)
-        {
-            if (isTouching)
-            {
-                Vector3 startWorld = mainCamera.ScreenToWorldPoint(new Vector3(touchStartPosition.x, touchStartPosition.y, mainCamera.nearClipPlane));
-                Vector3 endWorld = mainCamera.ScreenToWorldPoint(new Vector3(touchCurrentPosition.x, touchCurrentPosition.y, mainCamera.nearClipPlane));
-                Debug.DrawLine(startWorld, endWorld, Color.red);
-            }
-
-            Color rectColor = isIntersecting ? Color.cyan : Color.yellow;
-
-            Vector3[] corners = new Vector3[4];
-            rectangleImage.rectTransform.GetWorldCorners(corners);
-            for (int i = 0; i < 4; i++)
-            {
-                Debug.DrawLine(corners[i], corners[(i + 1) % 4], rectColor);
-            }
-        }
     }
 }

@@ -71,12 +71,20 @@ public class SliceFruit : MonoBehaviour
         Activate(Sprites[0]);
     }
 
+    public void StartAction()
+    {
+
+        _slises[id].SetActive(true);
+    }
+
+    public void Release() => _slises.SetActiveAll(false);
+
+    private int id;
+
     public void Activate(Sprite Sprite)
     {
-        int id = GetID(Sprite);
+        id = GetID(Sprite);
 
-        _slises.SetActiveAll(false);
-        _slises[id].SetActive(true);
 
         _fruitImage.sprite = _sprites[id];
         _fruitImage.SetNativeSize();
@@ -116,8 +124,8 @@ public class SliceFruit : MonoBehaviour
             4 => _spritesSplash[1],
             5 => _spritesSplash[0],
             6 => _spritesSplash[3],
-            > 7 => _spritesSplash[2],
-            _ => _spritesSplash[0] //throw new System.NotImplementedException(),
+            > 6 => _spritesSplash[2],
+            _ => throw new System.NotImplementedException(),
         };
     }
 }

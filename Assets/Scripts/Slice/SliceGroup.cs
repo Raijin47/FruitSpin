@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 public class SliceGroup : MonoBehaviour
@@ -11,10 +8,11 @@ public class SliceGroup : MonoBehaviour
 
     enum State
     {
-        SLICE_HANDLER_0, SLICE_HANDLER_1, SLICE_HANDLER_2, NON_ACTIVE
+        SLICE_HANDLER_0, SLICE_HANDLER_1, SLICE_HANDLER_2
     }
 
-    private State state = State.NON_ACTIVE;
+    private State state;
+
 
     private void Start()
     {
@@ -25,24 +23,18 @@ public class SliceGroup : MonoBehaviour
         state = State.SLICE_HANDLER_0;
     }
 
-    private void OnDisable()
-    {
-        sliceHandler_0.Activate();
-        sliceHandler_1.Deactivate();
-        sliceHandler_2.Deactivate();
-
-        state = State.SLICE_HANDLER_0;
-    }
-
-    //private void Awake()
+    //private void OnDisable()
     //{
     //    sliceHandler_0.Deactivate();
     //    sliceHandler_1.Deactivate();
     //    sliceHandler_2.Deactivate();
 
-    //    state = State.NON_ACTIVE;
+    //    state = State.SLICE_HANDLER_0;
     //}
+    public void NextStage()
+    {
 
+    }
 
     void Update()
     {
@@ -67,30 +59,21 @@ public class SliceGroup : MonoBehaviour
             case State.SLICE_HANDLER_2:
                 if (!sliceHandler_2.IsActive())
                 {
-                    state = State.NON_ACTIVE;
                     AudioControllerBlendera.Instance.Slice();
-                    
+
+                    sliceHandler_0.Activate();
+                    sliceHandler_1.Deactivate();
+                    sliceHandler_2.Deactivate();
+
+                    state = State.SLICE_HANDLER_0;
+
+                    SliceFruit.Instance.StartAction();
+
                     SliceFruit.Instance.GoodSlice();
                 }
                 break;
-            case State.NON_ACTIVE:
-                break;
             default:
                 break;
-        }
-        if (!sliceHandler_0.IsActive())
-        {
-            return;
-        }
-
-        if (!sliceHandler_1.IsActive())
-        {
-            return;
-        }
-
-        if (!sliceHandler_2.IsActive())
-        {
-            return;
         }
     }
 }
