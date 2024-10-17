@@ -50,7 +50,7 @@ public class Rowewr : MonoBehaviour
         }
 
         // Final adjustment phase
-        while (Mathf.Abs(SlotElements[0].transform.position.y - yPositions[0]) > 0.1f)
+        while (Mathf.Abs(SlotElements[0].transform.position.y - yPositions[0]) > 0.2f)
         {
             MoveSlots(newSpeed, false);
             yield return null;

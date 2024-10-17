@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class SliceFruit : MonoBehaviour
 {
+    public static SliceFruit Instance;
+
     [SerializeField] private SliceElement[] _element;
     [SerializeField] private RectTransform[] _elementTransform;
     [SerializeField] private SliceData _data;
@@ -11,12 +13,18 @@ public class SliceFruit : MonoBehaviour
     [SerializeField] private Sprite[] _sprites;
     [SerializeField] private Image _splash;
     [SerializeField] private Sprite[] _spritesCheck;
+    [SerializeField] private GameObject[] _slises;
     [SerializeField] private GameObject _panel;
 
     [SerializeField] private Sprite[] _spritesSplash;
 
     private int _countSlice;
     private bool _hasSecondSlice;
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     public void Check()
     {
@@ -29,17 +37,22 @@ public class SliceFruit : MonoBehaviour
             if (!element.HasReady) return;
 
 
-        if(Sprites.Count == 2)
+        if (Sprites.Count == 2)
         {
-            if(!_hasSecondSlice)
-            { 
+            if (!_hasSecondSlice)
+            {
                 Activate(Sprites[1]);
                 _hasSecondSlice = true;
                 return;
             }
         }
 
-        AnimationFruitBlender.Instance.StartAnim(Sprites);
+        GoodSlice();
+    }
+
+    public void GoodSlice()
+    {
+        //AnimationFruitBlender.Instance.StartAnim(Sprites);
         Sprites.Clear();
         _panel.SetActive(false);
         _hasSecondSlice = false;
@@ -62,6 +75,8 @@ public class SliceFruit : MonoBehaviour
     {
         int id = GetID(Sprite);
 
+        _slises.SetActiveAll(false);
+        _slises[id].SetActive(true);
 
         _fruitImage.sprite = _sprites[id];
         _fruitImage.SetNativeSize();
@@ -102,7 +117,7 @@ public class SliceFruit : MonoBehaviour
             5 => _spritesSplash[0],
             6 => _spritesSplash[3],
             > 7 => _spritesSplash[2],
-            _ => throw new System.NotImplementedException(),
+            _ => _spritesSplash[0] //throw new System.NotImplementedException(),
         };
     }
 }
